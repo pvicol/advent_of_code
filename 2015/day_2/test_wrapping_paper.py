@@ -27,16 +27,16 @@ class TestGetFloor(unittest.TestCase):
 
         # Loop through test cases and check the wrapping paper needed based on dimensions given
         for item in self.test_dimensions_list:
-
-            # Pass dict as keyword arguments to the function instead of specifying each
-            self.assertEqual(calculate_dimensions(**item[0]), item[1])
+            with self.subTest():
+                # Pass dict as keyword arguments to the function instead of specifying each
+                self.assertEqual(calculate_dimensions(**item[0]), item[1])
     
     def test_extract_dimensions(self):
         
         # Loop through test cases
         for item in self.test_extract_dimensions_list:
-
-            self.assertEqual(extract_dimensions(item[0]), item[1])
+            with self.subTest():
+                self.assertEqual(extract_dimensions(item[0]), item[1])
 
 if __name__ == '__main__':
     unittest.main()
