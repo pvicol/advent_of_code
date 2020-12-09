@@ -23,7 +23,8 @@ class TestCalculateHouses(unittest.TestCase):
 
         # Loop through test cases and check the answer
         for item in self.test_houses_delivered_list:
-            self.assertEqual(get_number_of_delivered_houses(item[0]),item[1])
+            with self.subTest():
+                self.assertEqual(get_number_of_delivered_houses(item[0]),item[1])
 
 if __name__ == '__main__':
     unittest.main()
