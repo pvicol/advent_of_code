@@ -26,7 +26,23 @@ def get_floor(directions: str) -> int:
             _tmp_floor -= 1
         else:
             print("Unknown direction, skipping.")
-    
+    return _tmp_floor
+
+def get_basement_notification(directions: str) -> int:
+    """
+    Gets the floor level the Santa is on.
+    """
+    _tmp_floor = 0
+    for index, direction in enumerate(directions):
+        if direction == "(":
+            _tmp_floor += 1
+        elif direction == ")":
+            _tmp_floor -= 1
+        else:
+            print("Unknown direction, skipping.")
+
+        if _tmp_floor == -1:
+            return index + 1
     return _tmp_floor
 
 if __name__ == "__main__":
@@ -37,6 +53,8 @@ if __name__ == "__main__":
 
     # Get the floor number
     floor = get_floor(gps_directions)
+    basement_notification = get_basement_notification(gps_directions)
 
     # Print to screen
     print(floor)
+    print(basement_notification)
