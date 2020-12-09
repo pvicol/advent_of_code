@@ -29,7 +29,8 @@ class TestGetFloor(unittest.TestCase):
 
         # Loop through test cases and check the floor number based on direction given
         for floor in self.test_get_floor_list:
-            self.assertEqual(get_floor(floor[0]),floor[1])
+            with self.subTest():
+                self.assertEqual(get_floor(floor[0]),floor[1])
 
 if __name__ == '__main__':
     unittest.main()
