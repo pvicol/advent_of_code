@@ -7,12 +7,12 @@
 import unittest
 from stocking import get_zero_code
 
-class TestCalculateHouses(unittest.TestCase):
+class TestStocking(unittest.TestCase):
 
     def setUp(self):
 
         # Set list of test cases
-        self.test_houses_delivered_list = [
+        self.test_stocking_list = [
             ["abcdef", 5, 609043],
             ["pqrstuv", 5, 1048970]
         ]
@@ -20,8 +20,9 @@ class TestCalculateHouses(unittest.TestCase):
     def test_get_zero_code(self):
 
         # Loop through test cases and check the answer
-        for item in self.test_houses_delivered_list:
-            self.assertEqual(get_zero_code(code = item[0], zeros = item[1]),item[2])
+        for item in self.test_stocking_list:
+            with self.subTest():
+                self.assertEqual(get_zero_code(code = item[0], zeros = item[1]),item[2])
 
 if __name__ == '__main__':
     unittest.main()
