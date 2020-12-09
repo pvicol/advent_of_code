@@ -5,7 +5,7 @@
 # All numbers in the elves' list are in feet. How many total square feet of wrapping paper should they order?
 
 import unittest
-from wrapping_paper import calculate_dimensions, extract_dimensions
+from wrapping_paper import calculate_dimensions, extract_dimensions, calculate_ribbon
 
 class TestGetFloor(unittest.TestCase):
 
@@ -23,6 +23,12 @@ class TestGetFloor(unittest.TestCase):
             ["24x28x28", {"l": 24, "w": 28, "h": 28}],
         ]
 
+        self.test_ribbon_length_list = [
+            [{"l": 2, "w": 3, "h": 4}, 34],
+            [{"l": 1, "w": 1, "h": 10}, 14]
+            
+        ]
+
     def test_calculate_dimensions(self):
 
         # Loop through test cases and check the wrapping paper needed based on dimensions given
@@ -37,6 +43,13 @@ class TestGetFloor(unittest.TestCase):
         for item in self.test_extract_dimensions_list:
             with self.subTest():
                 self.assertEqual(extract_dimensions(item[0]), item[1])
+
+    def test_calculate_ribbon(self):
+        
+        # Loop through test cases
+        for item in self.test_ribbon_length_list:
+            with self.subTest():
+                self.assertEqual(calculate_ribbon(**item[0]), item[1])
 
 if __name__ == '__main__':
     unittest.main()
