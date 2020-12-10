@@ -29,7 +29,6 @@
 # ieodomkazucvgmuy is naughty because it has a repeating letter with one between (odo), but no pair that appears twice.
 # How many strings are nice under these new rules?
 
-import itertools
 import re
 
 def you_teasing_me(name: str, disallowed: list = ["ab", "cd", "pq", "xy"]) -> str:
