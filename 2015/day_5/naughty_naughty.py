@@ -45,15 +45,12 @@ def you_teasing_me(name: str, disallowed: list = ["ab", "cd", "pq", "xy"]) -> st
         nice_threshold += 1
 
     # 2nd rule, contains at least one letter that appears twice in a row
-    consecutive_group = ["".join(g) for _, g in itertools.groupby(name)]
-    double_consecutive = [item for item in consecutive_group if len(item) >= 2]
-    if double_consecutive:
+    if re.search(r"(.)\1", name):
         nice_threshold += 1
 
     # 3rd rule, disallowed string
-    for rule in disallowed:
-        if rule in name:
-            nice_threshold -= 1
+    if re.search(r"|".join(disallowed), name):
+        nice_threshold -= 1
 
     return "nice" if nice_threshold == 2 else "naughty"
 
