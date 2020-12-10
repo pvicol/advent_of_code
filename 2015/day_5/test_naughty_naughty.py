@@ -8,7 +8,7 @@
 
 
 import unittest
-from naughty_naughty import you_teasing_me
+from naughty_naughty import you_teasing_me, now_now
 
 class TestNaughtyNaughty(unittest.TestCase):
 
@@ -23,12 +23,27 @@ class TestNaughtyNaughty(unittest.TestCase):
             ["dvszwmarrgswjxmb", "naughty"]
         ]
 
+        self.test_houses_delivered_list_revised = [
+            ["qjhvhtzxzqqjkmpb", "nice"],
+            ["xxyxx", "nice"],
+            ["aaa", "naughty"],
+            ["uurcxstgmygtbstg", "naughty"],
+            ["ieodomkazucvgmuy", "naughty"]
+        ]
+
     def test_you_teasing_me(self):
 
         # Loop through test cases and check the answer
         for item in self.test_houses_delivered_list:
             with self.subTest():
                 self.assertEqual(you_teasing_me(item[0]), item[1])
+    
+    def test_now_now(self):
+
+        # Loop through test cases and check the answer
+        for item in self.test_houses_delivered_list_revised:
+            with self.subTest():
+                self.assertEqual(now_now(item[0]), item[1])
 
 if __name__ == '__main__':
     unittest.main()
